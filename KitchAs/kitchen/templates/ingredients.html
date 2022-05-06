@@ -1,0 +1,66 @@
+{% extends "template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	
+	<style type="text/css">
+		.ignore-css{
+			all:unset;
+		}
+	</style>
+
+	<!--content-->
+	<div class="menu" ng-app="myApp" ng-controller="namesCtrl">
+		<div class="container">
+			<div class="menu-top">
+				<div class="col-md-4 menu-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<h3>Menu</h3>
+					
+				</div>
+				
+				<div class="col-md-8 menu-right animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<p>Pick the ingredients and we will show you what all you can cook with it.<br>Simple, isn't it?</p>
+					
+	
+				</div>
+				<div class="clearfix"> </div>
+			</div>			
+		</div>
+
+		<!-- bootstrap3 - picked up from w3 schools - https://www.w3schools.com/bootstrap/bootstrap_collapse.asp -->
+		<div class="container"  style="width: 60%; margin: auto">
+			<form action="/search_result" method="post">
+				<div class="panel-group" id="accordion">
+					{% for ingr_category, collapse in ingr_categories_with_extras %}
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#{{ collapse }}">{{ ingr_category.0 }}</a>
+							</h4>
+						</div>
+						<div id="{{ collapse }}" class="panel-collapse collapse">
+							<div class="panel-body">
+								{% for ingr in ingr_category.1 %}
+								<input type="checkbox" name="ingr[]" value="{{ ingr }}">{{ ingr }}<br>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>	
+				<br>
+				<center><input type="submit" value="Submit"></center>
+			</form> 
+		</div>
+		
+
+		<script>
+		function myFunction()
+		{	
+			// var jsonselection = JSON.stringify($scope.selection);
+		$http.post('localhost:8000/kitas/menu/b',{'key':$.toJSON($scope.selection)});
+		}
+		</script>    
+
+	</div>
+{% endblock %}

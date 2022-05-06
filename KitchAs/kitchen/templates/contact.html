@@ -1,0 +1,70 @@
+{% extends "template.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<!--content-->
+	<div class="contact">
+		<div class="container">
+		<div class="menu-top">
+				<div class="col-md-4 menu-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<h3>Contact</h3>
+					<label><i class="glyphicon glyphicon-menu-up"></i></label>
+				</div>
+				<div class="col-md-8 menu-right animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<p> Drop us a message.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="contact-top">
+			<div class="col-md-5 contact-map">
+
+			</div>
+			<div class="address col-md-5">
+					      <h4>Address</h4>
+					      <p> KITAS</p>
+						  <p>PICT Pune </p>
+						  <p>ph : +91 823 859 6050</p>
+						  <p>Email : <a href="{% static 'mailto:example@gmail.com' %}">example@gmail.com</a></p>
+					 </div>
+			</div>
+			<div class="col-md-7 contact-para animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+			<h5>Contact Form</h5>
+			<form>
+				<div class="grid-contact">
+					<div class="col-md-6 contact-grid">
+						<p class="your-para">Name </p>
+							<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+						</div>
+					<div class="col-md-6 contact-grid">
+					<p class="your-para">Phone number</p>	
+						<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="grid-contact">
+					<div class="col-md-6 contact-grid">
+						<p class="your-para">Email</p>
+						<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+					</div>
+					<div class="col-md-6 contact-grid">
+						<p class="your-para">Password</p>
+						<input type="Password" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<p class="your-para msg-para">MESSAGE</p>
+				<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
+					<div class="send">
+						<input type="submit" value="Send " >
+					</div>
+			</form>
+			</div>	
+			
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	</div>
+
+
+{% endblock %}
